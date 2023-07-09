@@ -1,4 +1,4 @@
-import { Resource, component$, useResource$, useSignal, useTask$ } from '@builder.io/qwik';
+import { Resource, component$, useResource$, useSignal } from '@builder.io/qwik';
 import { gqlCall } from './gql-call';
 import { RequestHandler, routeLoader$ } from '@builder.io/qwik-city';
 
@@ -33,9 +33,9 @@ export default component$(() => {
             <button onClick$={() => reload.value += 1}>🔄</button>
             <Resource
                 value={res}
-                onResolved={({ data }) => data != null && Array.isArray(data?.books)
-                    ? <>{data.books.map(b => <div> {b.title}</div>)}</>
-                    : <div>{JSON.stringify(data)}</div>
+                onResolved={(res) => res?.data != null && Array.isArray(res.data?.books)
+                    ? <>{res.data.books.map(b => <div> {b.title}</div>)}</>
+                    : <div>{JSON.stringify(res)}</div>
                 }
             />
         </>

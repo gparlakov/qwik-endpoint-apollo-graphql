@@ -31,7 +31,7 @@ export const onRequest: RequestHandler = async ({
       body: body ?? {},
     };
 
-    server
+    return server
       .executeHTTPGraphQLRequest({
         httpGraphQLRequest,
         context: () => defaultContext({}),
