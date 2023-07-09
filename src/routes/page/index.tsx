@@ -1,4 +1,4 @@
-import { Resource, component$, useResource$, useSignal, useTask$ } from '@builder.io/qwik';
+import { Resource, component$, useResource$, useSignal } from '@builder.io/qwik';
 import { gqlCall } from './gql-call';
 import { RequestHandler, routeLoader$ } from '@builder.io/qwik-city';
 

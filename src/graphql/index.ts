@@ -4,12 +4,7 @@ import { ApolloServer } from '@apollo/server';
 // that together define the "shape" of queries that are executed against
 // your data.
 
-// @ts-expect-error
-import typeDefsFile from './schema.graphql';
-
-import { readFileSync } from 'fs';
-
-const typeDefs = readFileSync(`./${typeDefsFile}`).toString();
+import typeDefs from './schema.graphql?raw';
 
 const books = [
     {
@@ -35,7 +30,7 @@ const resolvers = {
 // definition and your set of resolvers.
 export const server = new ApolloServer({
     typeDefs,
-    resolvers,
+    resolvers
 });
 
 export const serverStarted = server.start();
